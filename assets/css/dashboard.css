@@ -1,0 +1,37 @@
+.header {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    justify-content: space-around;
+
+  }
+  .header .nav-item {
+    margin: 0 15px;
+    color: #3C9C8B;
+  }
+  .logout-img {
+    max-height: 40px; /* Adjust as needed */
+  }
+  .logo {
+    max-height: 30px; /* Adjust as needed */
+    cursor: pointer;
+  }
+  .dropdown-menu {
+    min-width: 200px; /* Adjust as needed */
+  }
+  .row {
+    justify-content: center;
+}
+h1, h3{
+  color: #3C9C8B;
+}
+p{
+  font-weight: 600;
+}
+a:hover{
+  color: #3C9C8B;
+}
+footer {
+  background-color: #3C9C8B;
+  color: white;
+  padding: 15px;
+}
