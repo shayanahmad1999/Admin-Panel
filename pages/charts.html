@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Charts</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap-reboot.css">
@@ -64,45 +64,36 @@
 </header>
 <body>
 
-
+  <div class="container mt-5">    
+    <h4 class="text-left">Basic Charts</h4>
     
-  <div class="container-fluid bg-3 text-center">    
-    <br>
-    <h4 class="text-left">Hi, welcome back!</h4>
-<p class="text-left">Your web analytics dashboard template.</p>
-    <br><br><br>
-    <div class="row">
-      <div class="col-sm-3">
-        <p>Forms</p>
-        <img src="../assets/images/depositphotos_75092627-stock-illustration-pictograph-of-checklist-icon.jpg" class="img-responsive" style="width:100%" alt="Image">
+    <div class="row mb-4">
+      <div class="col-md-6 mb-4">
+        <h4 class="text-left">Line Chart</h4>
+        <p>Below is the basic line chart example.</p>
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas> 
       </div>
-      <div class="col-sm-3"> 
-        <p>Charts</p>
-        <img src="../assets/images/ftcms_347ece48-0f69-11e9-a3aa-118c761d2745.jpg" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Icons</p>
-        <img src="../assets/images/1_WO5mgu0bcFNdt7R6JH6mhQ.png" class="img-responsive" style="width:100%" alt="Image">
+      <div class="col-md-6 mb-4">
+        <h4 class="text-left">Bar Chart</h4>
+        <p>Below is the basic Bar Chart example.</p>
+        <canvas id="myBarChart" style="width:100%;max-width:600px"></canvas>
       </div>
     </div>
-  </div><br>
-  
-  <div class="container-fluid bg-3 text-center">    
-    <div class="row">
-      <div class="col-sm-3">
-        <p>Buttons</p>
-        <img src="../assets/images/CSS-Gradient-Buttons.jpg" class="img-responsive" style="width:100%" alt="Image">
+    
+    <div class="row mb-4">
+      <div class="col-md-6 mb-4">
+        <h4 class="text-left">Horizontal Bar Chart</h4>
+        <p>Below is the basic Horizontal Bar chart example.</p>
+        <canvas id="myHorizontalBarChart" style="width:100%;max-width:600px"></canvas>
       </div>
-      <div class="col-sm-3"> 
-        <p>Tables</p>
-        <img src="../assets/images/opt_fbt_thumbnail.jpg" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Bar</p>
-        <img src="../assets/images/2023-progress-bars.png" class="img-responsive" style="width:100%" alt="Image">
+      <div class="col-md-6 mb-4">
+        <h4 class="text-left">Donut Chart</h4>
+        <p>Below is the basic Donut chart example.</p>
+        <canvas id="myDoughnutChart" style="width:100%;max-width:600px"></canvas>
       </div>
     </div>
-  </div><br><br>
+  </div>
+ 
 
   <footer class="fixed-bottom text-center">
     <p>Footer Text</p>
@@ -112,6 +103,9 @@
 <!-- Bootstrap JS and dependencies -->
 <script src="../assets/js/jquery-3.5.1.slim.min.js"></script>
 <script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/Chart.js"></script>
+<script src="../assets/js/Chart.min.js"></script>
+<script src="../assets/js/Custom/Custom.js"></script>
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
