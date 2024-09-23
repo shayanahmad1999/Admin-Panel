@@ -178,21 +178,42 @@
       <div class="col-md-12">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       </div>
     </div>
     <p class="font-weight-bold mt-4">Sweet Alert</p>
     <div class="row g-3">
-      <div class="col-md-12">
-        <button id="showAlert" class="btn btn-primary">Show Alert</button>
+      <div class="col-md-2">
+        <button id="showAlert" class="btn btn-success">Success</button>
       </div>
+      <div class="col-md-2"></div>
+      <button id="showConfirm" class="btn btn-warning">Confirm</button>
     </div>
     <div class="row g-3 mt-4">
-      <div class="col-md-12">
-        <button id="showConfirm" class="btn btn-warning">Show Confirm</button>
-      </div>
+      <div class="col-md-2"><button class="btn btn-primary" id="basicAlert">Basic Alert</button></div>
+      <div class="col-md-2"><button class="btn btn-success" id="successAlert">Success Alert</button></div>
+      <div class="col-md-2"><button class="btn btn-danger" id="errorAlert">Error Alert</button></div>
+      <div class="col-md-2"><button class="btn btn-warning" id="warningAlert">Warning Alert</button></div>
+      <div class="col-md-2"><button class="btn btn-info" id="infoAlert">Info Alert</button></div>
+      <div class="col-md-2"><button class="btn btn-dark" id="confirmationAlert">Confirmation Alert</button></div>
     </div>
+    <div class="row g-3 mt-4">
+      <div class="col-md-2"><button class="btn btn-secondary" id="inputAlert">Input Alert</button></div>
+      <div class="col-md-2"><button class="btn btn-outline-success" id="toastNotification">Toast Notification</button>
+      </div>
+      <div class="col-md-3"><button class="btn btn-primary" id="customHtml">Custom HTML Alert</button></div>
+    </div>
+    <div class="row g-3 mt-4">
+      <div class="col-md-2"><button class="btn btn-success" id="successToast">Success Toast</button></div>
+      <div class="col-md-2"><button class="btn btn-danger" id="errorToast">Error Toast</button></div>
+      <div class="col-md-2"><button class="btn btn-warning" id="warningToast">Warning Toast</button></div>
+      <div class="col-md-2"><button class="btn btn-info" id="infoToast">Info Toast</button></div>
+      <div class="col-md-2"><button class="btn btn-primary" id="customToast">Custom Toast</button></div>
+    </div>
+  </div>
   </div>
 
 
@@ -209,6 +230,7 @@
       });
     });
   </script>
+
   <script>
     document.getElementById('showConfirm').addEventListener('click', function () {
       Swal.fire({
@@ -224,6 +246,194 @@
         if (result.isConfirmed) {
           Swal.fire('Success!', 'Your action has been completed.', 'success');
         }
+      });
+    });
+  </script>
+
+  <script>
+    // Basic Alert
+    document.getElementById('basicAlert').addEventListener('click', function () {
+      Swal.fire('Hello!', 'This is a simple alert.', 'info');
+    });
+
+    // Success Alert
+    document.getElementById('successAlert').addEventListener('click', function () {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Your action was successful.',
+        confirmButtonText: 'Cool!'
+      });
+    });
+
+    // Error Alert
+    document.getElementById('errorAlert').addEventListener('click', function () {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!'
+      });
+    });
+
+    // Warning Alert
+    document.getElementById('warningAlert').addEventListener('click', function () {
+      Swal.fire({
+        title: 'Warning!',
+        text: 'This is a warning alert!',
+        icon: 'warning',
+        confirmButtonText: 'Okay'
+      });
+    });
+
+    // Info Alert
+    document.getElementById('infoAlert').addEventListener('click', function () {
+      Swal.fire({
+        title: 'Information',
+        text: 'This is an informational alert.',
+        icon: 'info'
+      });
+    });
+
+    // Confirmation Alert
+    document.getElementById('confirmationAlert').addEventListener('click', function () {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You won\'t be able to revert this!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        } else {
+          Swal.fire('Cancelled', 'Your file is safe :)', 'error');
+        }
+      });
+    });
+
+    // Input Alert
+    document.getElementById('inputAlert').addEventListener('click', function () {
+      Swal.fire({
+        title: 'Enter your name',
+        input: 'text',
+        inputPlaceholder: 'Your name',
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(`Hello, ${result.value}!`);
+        }
+      });
+    });
+
+    // Toast Notification
+    document.getElementById('toastNotification').addEventListener('click', function () {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Your settings have been saved'
+      });
+    });
+
+    // Custom HTML Alert
+    document.getElementById('customHtml').addEventListener('click', function () {
+      Swal.fire({
+        title: '<strong>Custom HTML</strong>',
+        icon: 'info',
+        html: '<p>This is a custom HTML alert with <strong>HTML content</strong>.</p>',
+        showCloseButton: true,
+        confirmButtonText: 'Okay'
+      });
+    });
+  </script>
+
+  <script>
+    // Success Toast
+    document.getElementById('successToast').addEventListener('click', function () {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Your action was successful!'
+      });
+    });
+
+    // Error Toast
+    document.getElementById('errorToast').addEventListener('click', function () {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+
+      Toast.fire({
+        icon: 'error',
+        title: 'Oops! Something went wrong.'
+      });
+    });
+
+    // Warning Toast
+    document.getElementById('warningToast').addEventListener('click', function () {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+
+      Toast.fire({
+        icon: 'warning',
+        title: 'This is a warning message!'
+      });
+    });
+
+    // Info Toast
+    document.getElementById('infoToast').addEventListener('click', function () {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+
+      Toast.fire({
+        icon: 'info',
+        title: 'This is some information for you.'
+      });
+    });
+
+    // Custom Toast
+    document.getElementById('customToast').addEventListener('click', function () {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Custom toast with <strong>HTML content</strong>!',
+        html: '<i>This is a custom message with HTML.</i>'
       });
     });
   </script>
